@@ -1,0 +1,7 @@
+.unstyled-input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding: 0.5rem;
+    width: 100%;
+}
