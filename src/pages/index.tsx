@@ -2,14 +2,14 @@
 // import reactLogo from '../assets/react.svg'
 // import viteLogo from '/vite.svg'
 import { Link } from "react-router-dom";
-import './index.css'
+import "./index.css";
 
 function App() {
-  return (
-    <div className="wrapper">
-      <Link to="/workout">Start Workout</Link>
-    </div>
-  )
+    return (
+        <div className="wrapper">
+            <Link to="/workout">Start Workout</Link>
+        </div>
+    );
 }
 
-export default App
+export default App;
