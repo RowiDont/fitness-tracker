@@ -12,30 +12,29 @@ function Workout() {
   const [workout, setWorkout] = useState<Workout | null>(null);
 
   const titleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    workout && setWorkout({
-      ...workout,
-      title: e.target.value,
-    });
+    workout &&
+      setWorkout({
+        ...workout,
+        title: e.target.value,
+      });
   };
 
-  return (
-    <div>
-      {workout ? (
-        <>
-            <label htmlFor="title">Name</label>
-            <input
-                name="title"
-                className="unstyled-input"
-                onChange={titleOnChange}
-                defaultValue={workout.title}
-            />
-            <Log workout={workout} setWorkout={setWorkout} />
-        </>
-      ) : (
-        <button onClick={() => setWorkout(defaultWorkout)}>
-          Create Workout
-        </button>
-      )}
+  return workout ? (
+    <div className="wrapper">
+      <div className="section">
+        <label htmlFor="title">Name</label>
+        <input
+          name="title"
+          className="unstyled-input"
+          onChange={titleOnChange}
+          defaultValue={workout.title}
+        />
+      </div>
+      <Log workout={workout} setWorkout={setWorkout} />
+    </div>
+  ) : (
+    <div className="wrapper">
+        <button onClick={() => setWorkout(defaultWorkout)}>Create Workout</button>
     </div>
   );
 }

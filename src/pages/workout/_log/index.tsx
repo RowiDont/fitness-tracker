@@ -1,4 +1,5 @@
 import type { Workout } from "../../../types";
+// import './index.css';
 
 type Props = {
   workout: Workout;
@@ -6,7 +7,7 @@ type Props = {
 };
 
 function Log({ workout, setWorkout }: Props) {
-  return <div>Log</div>;
+  return <div className="section">Logs</div>;
 }
 
 export default Log;
