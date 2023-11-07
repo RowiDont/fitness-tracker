@@ -19,6 +19,7 @@ function Workout() {
             });
     };
 
+    console.log(workout);
     return workout ? (
         <div className="wrapper">
             <div className="section">
