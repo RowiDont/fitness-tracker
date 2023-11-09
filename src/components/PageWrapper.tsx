@@ -1,12 +1,10 @@
-#root {
-    width: 100vw;
-}
+import styled from "styled-components";
 
-.wrapper {
+export default styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
+    width: calc(100vw - 30px);
     max-width: 600px;
     margin: auto;
-}
+`;

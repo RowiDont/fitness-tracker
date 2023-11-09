@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Log from "./_log";
+import Section from "../../components/Section";
+import MinimalInput from "../../components/MinimalInput";
+import PageWrapper from "../../components/PageWrapper";
 import type { Workout } from "../../types";
-import "./index.css";
 
 const defaultWorkout: Workout = {
     title: `${new Date().toLocaleDateString()} Workout`,
@@ -21,24 +23,26 @@ function Workout() {
 
     console.log(workout);
     return workout ? (
-        <div className="wrapper">
-            <div className="section">
-                <label htmlFor="title">Name</label>
-                <input
-                    name="title"
-                    className="unstyled-input"
-                    onChange={titleOnChange}
-                    defaultValue={workout.title}
-                />
-            </div>
+        <PageWrapper>
+            <Section>
+                <label>
+                    Name
+                    <MinimalInput
+                        name="title"
+                        className="unstyled-input"
+                        onChange={titleOnChange}
+                        defaultValue={workout.title}
+                    />
+                </label>
+            </Section>
             <Log workout={workout} setWorkout={setWorkout} />
-        </div>
+        </PageWrapper>
     ) : (
-        <div className="wrapper">
+        <PageWrapper>
             <button onClick={() => setWorkout(defaultWorkout)}>
                 Create Workout
             </button>
-        </div>
+        </PageWrapper>
     );
 }
 

@@ -5,11 +5,11 @@ export type Workout = {
 
 export type Exercise = {
     title: string;
-    sets: Array<WorkoutSet>;
+    sets: Array<ExerciseSet>;
 };
 
-export type WorkoutSet = {
+export type ExerciseSet = {
     weight: number;
     reps: number;
-    notes: string;
+    createdAt: Date;
 };

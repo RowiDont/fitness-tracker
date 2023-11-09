@@ -12,10 +12,13 @@
   },
   "dependencies": {
     "@generouted/react-router": "^1.16.1",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
     "react-router-dom": "^6.18.0",
-    "react-select": "^5.8.0"
+    "react-select": "^5.8.0",
+    "styled-components": "^6.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -33,6 +36,9 @@
     "vite": "^4.4.5"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,css}": ["prettier src/ --write", "eslint src/"]
+    "*.{ts,tsx,js,jsx,css}": [
+      "npx prettier src/ --write",
+      "npx eslint src/"
+    ]
   }
 }
