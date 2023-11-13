@@ -8,11 +8,11 @@ import "normalize.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <Auth0Provider
-            domain="codify.auth0.com"
-            clientId="hAvOsj1ARqX9uXvhmd55bJt007ipcFEC"
+            domain={import.meta.env.VITE_AUTH0_DOMAIN}
+            clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
             authorizationParams={{
                 redirect_uri: window.location.origin,
-                audience: "fitness-tracker-dev",
+                audience: import.meta.env.VITE_AUTH0_AUDIENCE,
             }}
             cacheLocation="memory"
         >
