@@ -2,7 +2,6 @@ import { useState } from "react";
 import Log from "./_log";
 import Section from "../../components/Section";
 import MinimalInput from "../../components/MinimalInput";
-import PageWrapper from "../../components/PageWrapper";
 import type { Workout } from "../../types";
 
 const defaultWorkout: Workout = {
@@ -23,7 +22,7 @@ function Workout() {
 
     console.log(workout);
     return workout ? (
-        <PageWrapper>
+        <>
             <Section>
                 <label>
                     Name
@@ -36,13 +35,11 @@ function Workout() {
                 </label>
             </Section>
             <Log workout={workout} setWorkout={setWorkout} />
-        </PageWrapper>
+        </>
     ) : (
-        <PageWrapper>
-            <button onClick={() => setWorkout(defaultWorkout)}>
-                Create Workout
-            </button>
-        </PageWrapper>
+        <button onClick={() => setWorkout(defaultWorkout)}>
+            Create Workout
+        </button>
     );
 }
 
