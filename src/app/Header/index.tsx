@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { LoginButton, LogoutButton } from "./_auth/Buttons";
-import Profile from "./_auth/Profile";
+import { LoginButton, LogoutButton } from "./auth/Buttons";
+import Profile from "./auth/Profile";
 
 const AuthHeader = styled.header`
     display: flex;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import useAuthenticatedFetch from "../hooks/useAuthenticatedFetch";
-import type { Workout } from "../types";
+import useAuthenticatedFetch from "@/hooks/useAuthenticatedFetch";
+import type { Workout } from "@/types";
 
 function useGetWorkouts() {
     const authenticatedFetch = useAuthenticatedFetch();
