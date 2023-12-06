@@ -1,6 +1,7 @@
 export type Workout = {
-    id: number;
+    _id: number;
     title: string;
+    userId: string;
     log: Array<Exercise>;
 };
 

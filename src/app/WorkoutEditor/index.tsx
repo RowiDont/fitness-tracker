@@ -1,17 +1,14 @@
-import { useState } from "react";
-import Log from "./_log";
+import Log from "./log";
 import Section from "../../components/Section";
 import MinimalInput from "../../components/MinimalInput";
 import type { Workout } from "../../types";
 
-const defaultWorkout: Workout = {
-    title: `${new Date().toLocaleDateString()} Workout`,
-    log: [],
+type Props = {
+    workout: Workout;
+    setWorkout: (workout: Workout) => void;
 };
 
-function Workout() {
-    const [workout, setWorkout] = useState<Workout | null>(null);
-
+function WorkoutEditor({ workout, setWorkout }: Props) {
     const titleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         workout &&
             setWorkout({
@@ -21,7 +18,7 @@ function Workout() {
     };
 
     console.log(workout);
-    return workout ? (
+    return (
         <>
             <Section>
                 <label>
@@ -36,11 +33,7 @@ function Workout() {
             </Section>
             <Log workout={workout} setWorkout={setWorkout} />
         </>
-    ) : (
-        <button onClick={() => setWorkout(defaultWorkout)}>
-            Create Workout
-        </button>
     );
 }
 
-export default Workout;
+export default WorkoutEditor;

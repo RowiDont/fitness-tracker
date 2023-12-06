@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import useAuthenticatedFetch from "../hooks/useAuthenticatedFetch";
+import type { Workout } from "../types";
 
 function useGetWorkouts() {
     const authenticatedFetch = useAuthenticatedFetch();
-    const [workouts, setWorkouts] = useState([]);
+    const [workouts, setWorkouts] = useState<Workout[]>([]);
 
     useEffect(() => {
         if (authenticatedFetch) {
@@ -18,11 +18,23 @@ function useGetWorkouts() {
     return { workouts };
 }
 
-function App() {
+function WorkoutList({
+    setWorkout,
+}: {
+    setWorkout: (workout: Workout) => void;
+}) {
     const { workouts } = useGetWorkouts();
-    console.log(workouts);
 
-    return <Link to="/workouts">Start Workout</Link>;
+    return (
+        <ul>
+            {workouts.map((workout) => (
+                <li key={workout._id}>
+                    {workout.title} - {workout.userId}
+                    <button onClick={() => setWorkout(workout)}>Select</button>
+                </li>
+            ))}
+        </ul>
+    );
 }
 
-export default App;
+export default WorkoutList;

@@ -13,13 +13,11 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.3",
-    "@generouted/react-router": "^1.16.1",
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
-    "react-router-dom": "^6.18.0",
     "react-select": "^5.8.0",
     "styled-components": "^6.1.0"
   },
