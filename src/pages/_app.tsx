@@ -1,8 +1,19 @@
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import { Outlet } from "react-router-dom";
+import styled from "styled-components";
 import PageWrapper from "../components/PageWrapper";
 import { LoginButton, LogoutButton } from "./_auth/Buttons";
 import Profile from "./_auth/Profile";
+
+const AuthHeader = styled.header`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    height: 30px;
+    background: lightcoral;
+`;
 
 function Loader() {
     const { isLoading } = useAuth0();
@@ -21,10 +32,12 @@ export default function App() {
             }}
         >
             <PageWrapper>
+                <AuthHeader>
+                    <Profile />
+                    <LoginButton />
+                    <LogoutButton />
+                </AuthHeader>
                 <Loader />
-                <LoginButton />
-                <LogoutButton />
-                <Profile />
             </PageWrapper>
         </Auth0Provider>
     );

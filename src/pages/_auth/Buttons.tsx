@@ -1,9 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
 export function LoginButton() {
-    const { loginWithRedirect, user } = useAuth0();
+    const { loginWithRedirect, user, isLoading } = useAuth0();
 
-    if (user) {
+    if (user || isLoading) {
         return null;
     }
 

@@ -1,4 +1,5 @@
 export type Workout = {
+    id: number;
     title: string;
     log: Array<Exercise>;
 };

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { Workout } from "../../../types";
 import Exercise from "./Exercise";
 
@@ -7,6 +8,15 @@ type Props = {
 };
 
 function Log({ workout, setWorkout }: Props) {
+    useEffect(() => {
+        if (!workout.log) {
+            setWorkout({
+                ...workout,
+                log: [],
+            });
+        }
+    }, [workout, setWorkout]);
+
     const addExercise = () => {
         setWorkout({
             ...workout,
@@ -42,16 +52,18 @@ function Log({ workout, setWorkout }: Props) {
     };
 
     const exercises = workout.log
-        .map((exercise, index) => (
-            <Exercise
-                key={index}
-                exercise={exercise}
-                logIndex={index}
-                updateLog={updateLog}
-                deleteExercise={deleteExercise}
-            />
-        ))
-        .reverse();
+        ? workout.log
+              .map((exercise, index) => (
+                  <Exercise
+                      key={index}
+                      exercise={exercise}
+                      logIndex={index}
+                      updateLog={updateLog}
+                      deleteExercise={deleteExercise}
+                  />
+              ))
+              .reverse()
+        : [];
 
     return (
         <>

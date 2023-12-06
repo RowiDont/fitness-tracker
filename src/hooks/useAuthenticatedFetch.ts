@@ -27,8 +27,7 @@ export default function useAuthenticatedFetch() {
 
                     if (!response.ok) {
                         throw new Error(
-                            "The authenticated fetch request failed: " +
-                                response.statusText,
+                            `The fetch request failed: (${response.status}) ${response.statusText}`,
                         );
                     }
 
