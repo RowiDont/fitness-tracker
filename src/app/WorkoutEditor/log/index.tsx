@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import type { Workout } from "../../../types";
+import type { Workout } from "@/types";
 import Exercise from "./Exercise";
 
 type Props = {
@@ -8,20 +7,11 @@ type Props = {
 };
 
 function Log({ workout, setWorkout }: Props) {
-    useEffect(() => {
-        if (!workout.log) {
-            setWorkout({
-                ...workout,
-                log: [],
-            });
-        }
-    }, [workout, setWorkout]);
-
     const addExercise = () => {
         setWorkout({
             ...workout,
             log: [
-                ...workout.log,
+                ...(workout.log || []),
                 {
                     title: "",
                     sets: [],

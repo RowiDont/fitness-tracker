@@ -3,8 +3,8 @@ import CreatableSelect from "react-select/creatable";
 import styled from "styled-components";
 import { BiTrash } from "react-icons/bi";
 import ExerciseSet from "./ExerciseSet";
-import Section from "../../../components/Section";
-import type { Exercise, ExerciseSet as ExerciseSetType } from "../../../types";
+import Section from "@/components/Section";
+import type { Exercise, ExerciseSet as ExerciseSetType } from "@/types";
 
 const ExerciseSetWrapper = styled.div`
     display: flex;

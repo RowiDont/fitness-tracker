@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import type { ExerciseSet } from "../../../types";
-import MinimalInput from "../../../components/MinimalInput";
+import type { ExerciseSet } from "@/types";
+import MinimalInput from "@/components/MinimalInput";
 
 const StyledExerciseSet = styled.div`
     display: flex;

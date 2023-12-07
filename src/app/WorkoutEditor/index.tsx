@@ -1,7 +1,7 @@
 import Log from "./log";
-import Section from "../../components/Section";
-import MinimalInput from "../../components/MinimalInput";
-import type { Workout } from "../../types";
+import Section from "@/components/Section";
+import MinimalInput from "@/components/MinimalInput";
+import type { Workout } from "@/types";
 
 type Props = {
     workout: Workout;
