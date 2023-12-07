@@ -32,7 +32,9 @@ export default function App() {
                 <div>Loading ...</div>
             ) : user ? (
                 <AuthenticatedApp />
-            ) : null}
+            ) : (
+                "Please log in to see App features"
+            )}
         </PageWrapper>
     );
 }
