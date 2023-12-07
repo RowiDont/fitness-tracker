@@ -1,29 +1,30 @@
-import { useState, useEffect } from "react";
-import useAuthenticatedFetch from "@/hooks/useAuthenticatedFetch";
+import { useContext, useState, useEffect } from "react";
 import type { Workout } from "@/types";
+import { WorkoutApiContext } from "@/api";
 
-function useGetWorkouts() {
-    const authenticatedFetch = useAuthenticatedFetch();
+type Props = {
+    setWorkout: (workout: Workout) => void;
+};
+
+function WorkoutList({ setWorkout }: Props) {
     const [workouts, setWorkouts] = useState<Workout[]>([]);
+    const apiClient = useContext(WorkoutApiContext);
 
     useEffect(() => {
-        if (authenticatedFetch) {
-            authenticatedFetch(`${import.meta.env.VITE_API_URL}/workouts`)
-                .then((response) => response.json())
-                .then((data) => setWorkouts(data))
-                .catch((error) => console.log("error", error));
+        if (apiClient) {
+            apiClient.getWorkouts().then((workouts) => setWorkouts(workouts));
         }
-    }, [authenticatedFetch]);
+    }, [apiClient]);
 
-    return { workouts };
-}
-
-function WorkoutList({
-    setWorkout,
-}: {
-    setWorkout: (workout: Workout) => void;
-}) {
-    const { workouts } = useGetWorkouts();
+    const createWorkout = () => {
+        apiClient &&
+            apiClient
+                .createWorkout({
+                    title: "New Workout",
+                    log: [],
+                })
+                .then((workout) => setWorkouts([...workouts, workout]));
+    };
 
     return (
         <ul>
@@ -33,6 +34,9 @@ function WorkoutList({
                     <button onClick={() => setWorkout(workout)}>Select</button>
                 </li>
             ))}
+            <li>
+                <button onClick={createWorkout}>Create Workout</button>
+            </li>
         </ul>
     );
 }

@@ -17,13 +17,16 @@ export default function useAuthenticatedFetch() {
                 return async (url: string, options?: RequestInit) => {
                     const accessToken = await getAccessTokenSilently();
 
-                    const response = await fetch(url, {
-                        ...options,
-                        headers: {
-                            ...options?.headers,
-                            Authorization: `Bearer ${accessToken}`,
+                    const response = await fetch(
+                        `${import.meta.env.VITE_API_URL}${url}`,
+                        {
+                            ...options,
+                            headers: {
+                                ...options?.headers,
+                                Authorization: `Bearer ${accessToken}`,
+                            },
                         },
-                    });
+                    );
 
                     if (!response.ok) {
                         throw new Error(
