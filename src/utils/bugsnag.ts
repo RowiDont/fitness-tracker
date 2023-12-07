@@ -4,10 +4,10 @@ import BugsnagPluginReact from "@bugsnag/plugin-react";
 import BugsnagPerformance from "@bugsnag/browser-performance";
 
 Bugsnag.start({
-    apiKey: "37070c637fbdedc61e17a53f79183899",
+    apiKey: import.meta.env.VITE_BUGSNAG_API_KEY,
     plugins: [new BugsnagPluginReact()],
 });
-BugsnagPerformance.start({ apiKey: "37070c637fbdedc61e17a53f79183899" });
+BugsnagPerformance.start({ apiKey: import.meta.env.VITE_BUGSNAG_API_KEY });
 
 export const ErrorBoundary =
     Bugsnag.getPlugin("react")!.createErrorBoundary(React);
