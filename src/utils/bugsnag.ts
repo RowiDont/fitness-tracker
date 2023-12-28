@@ -7,6 +7,7 @@ Bugsnag.start({
     apiKey: import.meta.env.VITE_BUGSNAG_API_KEY,
     plugins: [new BugsnagPluginReact()],
 });
+
 BugsnagPerformance.start({ apiKey: import.meta.env.VITE_BUGSNAG_API_KEY });
 
 export const ErrorBoundary =
